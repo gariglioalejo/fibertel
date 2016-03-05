@@ -14,8 +14,8 @@ shutdownFlag = False
 
 def main(filename, argv):
     print "======================================"
-    print " Starting Speed Complainer!           "
-    print " Lets get noisy!                      "
+    print " Quejemonos de Fibertel!              "
+    print " Que nos escuchen!                    "
     print "======================================"
 
     global shutdownFlag
@@ -120,6 +120,13 @@ class SpeedTest(threading.Thread):
         downloadResult = float(downloadResult.replace('Download: ', '').replace(' Mbit/s', ''))
         uploadResult = float(uploadResult.replace('Upload: ', '').replace(' Mbit/s', ''))
 
+        hora = time.strftime('%X %x %Z')
+
+        print downloadResult, 
+        print" | ", 
+        print hora
+
+
         return { 'date': datetime.now(), 'uploadResult': uploadResult, 'downloadResult': downloadResult, 'ping': pingResult }
 
     def logSpeedTestResults(self, speedTestResults):
@@ -131,9 +138,16 @@ class SpeedTest(threading.Thread):
         message = None
         for (threshold, messages) in thresholdMessages.items():
             threshold = float(threshold)
-            if speedTestResults['downloadResult'] < threshold:
-                message = messages[random.randint(0, len(messages) - 1)].replace('{tweetTo}', self.config['tweetTo']).replace('{internetSpeed}', self.config['internetSpeed']).replace('{downloadResult}', str(speedTestResults['downloadResult']))
+           
 
+            if speedTestResults['downloadResult'] < threshold:
+                message = messages[0].replace('{tweetTo}', self.config['tweetTo']).replace('{internetSpeed}', self.config['internetSpeed']).replace('{downloadResult}', str(speedTestResults['downloadResult']))
+                print "aca paro"
+                print message
+                break
+
+
+                
         if message:
             api = twitter.Api(consumer_key=self.config['twitter']['twitterConsumerKey'],
                             consumer_secret=self.config['twitter']['twitterConsumerSecret'],
