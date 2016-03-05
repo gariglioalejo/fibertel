@@ -1,0 +1,30 @@
+{
+    "twitter": {
+        "twitterToken": "705887487470739461-rvXDhU0YJJDu16Zp8Cjjs2uCrjkwrsv",
+        "twitterConsumerKey": "ob56qXzWw4hvhPYilJ3mzTGo6",
+        "twitterTokenSecret": "oxO4be7279GnrvqghH4yEMPycZtSPgflLtwy373umWnWs",
+        "twitterConsumerSecret": "3rcp5gDE2C8nheGUW4xgXM2vogKbXXfX7nN8JXdvAq7Zb6yO4T"
+    },
+    "tweetTo": "@Fibertel",
+    "internetSpeed": "6",
+    "tweetThresholds": {
+        "1": [
+            "Ey {tweetTo} ! Estoy pagando {internetSpeed}Mb/s pero solo tengo {downloadResult} Mb/s?!? Que vergüenza.",
+            "Che {tweetTo} $390 al mes por {internetSpeed}Mbit/s y solo tengo {downloadResult} Mbit/s? No es injusto?"
+        ],
+        "3": [
+            "Uh {tweetTo} por $390 al mes espero mejor servicio que {downloadResult}Mbit/s cuando pago  {internetSpeed}Mbit/s. Media pila!",
+            "Che {tweetTo} por qué tengo {downloadResult}Mb/s cuando pago {internetSpeed}Mb/s? $390+ al mes por esto???"
+        ],
+        "5.5": [
+            "Bueno {tweetTo} creo que {downloadResult}Mb/s es mejor que nada, pero espero {internetSpeed}Mb/s"
+        ]
+    },
+    "log": {
+        "type": "csv",
+        "files": {
+            "ping": "pingresults.csv",
+            "speed": "speedrestuls.csv"
+        }
+    }
+}
